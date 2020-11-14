@@ -5,20 +5,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     public static final String CATEGORY = "category";
     public static final String ENTRY_TYPE = "entryType";
 
+    Button expenseButton;
+    Button incomeButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        expenseButton = findViewById(R.id.expense_tabbutton);
+        incomeButton = findViewById(R.id.income_tabbutton);
+
+        expenseButton.setBackground(getResources().getDrawable(R.drawable.tab_line));
 
         Fragment theDefault = new ExpenseFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, theDefault).commit();
@@ -56,9 +66,14 @@ public class MainActivity extends AppCompatActivity {
         switch(view.getId()){
             case R.id.expense_tabbutton:
                 selected = new ExpenseFragment();
+                view.setBackground(getResources().getDrawable(R.drawable.tab_line));
+                incomeButton.setBackground(getResources().getDrawable(android.R.color.transparent));
                 break;
             case R.id.income_tabbutton:
                 selected = new IncomeFragment();
+                view.setBackground(getResources().getDrawable(R.drawable.tab_line));
+                expenseButton.setBackground(getResources().getDrawable(android.R.color.transparent));
+                break;
         }
 
         if(selected != null){
