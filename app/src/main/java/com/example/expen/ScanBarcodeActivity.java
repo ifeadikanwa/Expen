@@ -22,7 +22,6 @@ public class ScanBarcodeActivity extends AppCompatActivity  {
         scanBtn = findViewById(R.id.scan_button);
         formatTxt = findViewById(R.id.scan_format);
         contentTxt = findViewById(R.id.scan_content);
-        recyclableTxt = findViewById(R.id.recyclable);
         type = findViewById(R.id.type);
         scanBtn.setOnClickListener(this::onClick);
     }
@@ -37,12 +36,27 @@ public class ScanBarcodeActivity extends AppCompatActivity  {
         super.onActivityResult(requestCode, resultCode, intent);
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if (scanningResult != null) {
-            String scanContent = scanningResult.getContents();
+
             String scanFormat = scanningResult.getFormatName();
-            formatTxt.setText("Barcode Format: " + scanFormat);
-            contentTxt.setText("Barcode: " + scanContent);
-            recyclableTxt.setText("Recyclable");
-            type.setText("Type: Plastic0");
+            if (scanFormat == "UPC-A"){
+                String scanContent = scanningResult.getContents();
+                formatTxt.setText("Barcode Format: " + scanFormat);
+                contentTxt.setText("Barcode: " + scanContent);
+                recyclableTxt.setText("Recyclable");
+                type.setText("Type: Plastic0");
+            }
+            if else (scanFormat == "UPC-E")
+            {
+                String scanContent = scanningResult.getContents();
+                formatTxt.setText("Barcode Format: " + scanFormat);
+                contentTxt.setText("Barcode: " + scanContent);
+                recyclableTxt.setText("Recyclable");
+                type.setText("Type: Plastic0");
+            }
+            else {
+
+            }
+
 
         } else {
             Toast toast = Toast.makeText(getApplicationContext(),

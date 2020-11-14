@@ -45,7 +45,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.google.android.gms:play-services-location:17.1.0'
-
+    compile 'com.txusballesteros:FitChart:1.0'
     implementation 'com.firebaseui:firebase-ui-firestore:6.3.0'
 
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
