@@ -12,6 +12,13 @@ public class Entry {
 
     public Entry(){}
 
+    public Entry(String entryDescription, Double entryAmount, Date entryDate, boolean isExpense) {
+        this.entryDescription = entryDescription;
+        this.entryAmount = entryAmount;
+        this.entryDate = entryDate;
+        this.isExpense = isExpense;
+    }
+
     public String getEntryDescription() {
         return entryDescription;
     }

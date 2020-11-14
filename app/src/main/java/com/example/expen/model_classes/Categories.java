@@ -29,7 +29,6 @@ public class Categories {
         this.categoryBudget = categoryBudget;
     }
 
-
     public boolean hasContent() {
         return hasContent;
     }

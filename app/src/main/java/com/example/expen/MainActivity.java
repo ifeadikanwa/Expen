@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,6 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String CATEGORY = "category";
+    public static final String ENTRY_TYPE = "entryType";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
                 //todo: open shopping session activity
             case R.id.shopping_session_action_mainact:
+                startActivity(new Intent(MainActivity.this, ShoppingSessionActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
