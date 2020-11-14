@@ -5,5 +5,8 @@
 
     <string name="shopping_session_action">Shopping Session Action</string>
     <string name="add_action">Add Action</string>
+    <string name="expenses">Expenses</string>
+    <string name="income">Income</string>
+    <string name="net_income">Net Income</string>
 
 </resources>
