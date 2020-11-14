@@ -14,8 +14,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.expen.model_classes.Categories;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 public class IncomeAdapter extends FirestoreRecyclerAdapter<Categories, IncomeAdapter.IncomeHolder> {
+
+    private IncomeAdapter.OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(DocumentSnapshot documentSnapshot, int position);
+    }
+
+    public void setOnItemClickListener(IncomeAdapter.OnItemClickListener listener) {
+        this.listener = listener;
+    }
 
     public IncomeAdapter (FirestoreRecyclerOptions<Categories> options){
         super(options);
@@ -35,6 +46,16 @@ public class IncomeAdapter extends FirestoreRecyclerAdapter<Categories, IncomeAd
             percentage = itemView.findViewById(R.id.percentage_txt);
             amount = itemView.findViewById(R.id.inc_amount_txt);
 
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION && listener != null) {
+                        listener.onItemClick(getSnapshots().getSnapshot(position), position);
+                    }
+                }
+            });
         }
     }
 

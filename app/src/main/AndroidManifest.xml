@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.expen">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,14 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Expen">
-        <activity android:name=".SearchItemActivity"></activity>
+        <activity android:name=".DisplayEntriesActivity"
+            android:parentActivityName=".MainActivity">
+
+        </activity>
+        <activity android:name=".SearchItemActivity" />
         <activity android:name=".ShoppingSessionActivity" />
         <activity android:name=".ShoppingSessionsListActivity" />
-        <activity android:name=".ShowCategoryEntriesActivity" />
         <activity android:name=".AddCategoryActivity" />
-        <activity android:name=".IncomeCategoryActivity"/>
+        <activity android:name=".IncomeCategoryActivity" />
         <activity android:name=".ExpenseCategoryActivity" />
-        <activity android:name=".AddEntryActivity"/>
+        <activity android:name=".AddEntryActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

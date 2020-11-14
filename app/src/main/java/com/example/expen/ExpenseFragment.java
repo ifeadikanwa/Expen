@@ -1,5 +1,6 @@
 package com.example.expen;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.example.expen.model_classes.Categories;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.Query;
 
 /**
@@ -100,6 +102,19 @@ public class ExpenseFragment extends Fragment {
         LinearLayoutManager verticalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(verticalLayout);
         recyclerView.setAdapter(adapter);
+
+        //on item click get the category name and go to DisplayEntriesActivity
+        adapter.setOnItemClickListener(new ExpenseAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
+                Categories categories = documentSnapshot.toObject(Categories.class);
+
+                Intent intent = new Intent(getContext(), DisplayEntriesActivity.class);
+                intent.putExtra(MainActivity.CATEGORY, categories.getCategoryName());
+                startActivity(intent);
+            }
+
+        });
     }
 
     @Override

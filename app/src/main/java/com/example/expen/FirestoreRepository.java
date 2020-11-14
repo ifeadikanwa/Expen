@@ -21,6 +21,7 @@ public class FirestoreRepository {
     public static final String ENTRIES = "entries";
     public static final String CATEGORY_NAME_FIELD = "categoryName";
     public static final String IS_EXPENSE_FIELD = "expense";
+    public static final String ENTRY_DATE_FIELD = "entryDate";
 
     public void createCategoryAndAddEntry(String categoryName, String categoryBudget, boolean hasContent, boolean isExpense,  String entryDescription, Double entryAmount, Date entryDate ){
         Categories category = new Categories(categoryName, categoryBudget, hasContent, isExpense);

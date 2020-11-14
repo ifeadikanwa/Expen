@@ -3,6 +3,7 @@ package com.example.expen;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -13,8 +14,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.expen.model_classes.Categories;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 public class ExpenseAdapter extends FirestoreRecyclerAdapter<Categories, ExpenseAdapter.ExpenseHolder> {
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(DocumentSnapshot documentSnapshot, int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
+    }
 
     public ExpenseAdapter (FirestoreRecyclerOptions<Categories> options){
         super(options);
@@ -35,6 +46,16 @@ public class ExpenseAdapter extends FirestoreRecyclerAdapter<Categories, Expense
             budgeted = itemView.findViewById(R.id.budget_txt);
             spent = itemView.findViewById(R.id.spent_txt);
             remaining = itemView.findViewById(R.id.remaining_txt);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION && listener != null) {
+                        listener.onItemClick(getSnapshots().getSnapshot(position), position);
+                    }
+                }
+            });
 
         }
     }
