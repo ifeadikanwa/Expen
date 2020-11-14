@@ -38,4 +38,5 @@
     <string name="gift_category_label">Gift</string>
     <string name="interest_category_label">Interest</string>
     <string name="other_category_label">Other</string>
+    <string name="shopping_sessions">Shopping Sessions</string>
 </resources>
