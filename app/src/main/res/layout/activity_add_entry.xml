@@ -6,4 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".AddEntryActivity">
 
+    <TextView
+        android:id="@+id/add_entry_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Add Entry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/choose_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="choose category"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_entry_title" />
+
+    <EditText
+        android:id="@+id/entry_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_category" />
+
+    <EditText
+        android:id="@+id/entry_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Amount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entry_description" />
+
+    <EditText
+        android:id="@+id/entry_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entry_amount" />
+
+    <Button
+        android:id="@+id/entry_save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/entry_date" />
 </androidx.constraintlayout.widget.ConstraintLayout>
