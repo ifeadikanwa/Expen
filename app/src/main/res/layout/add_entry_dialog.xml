@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="3dp">
+
+    <TextView
+        android:id="@+id/addExpenseTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add expense"
+        android:layout_margin="3dp"/>
+
+    <TextView
+        android:id="@+id/addIncomeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add income"
+        android:layout_margin="3dp"/>
+
+</LinearLayout>

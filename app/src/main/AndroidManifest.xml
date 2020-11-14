@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Expen">
+        <activity android:name=".IncomeCategoryActivity"></activity>
+        <activity android:name=".ExpenseCategoryActivity" />
+        <activity android:name=".AddEntryActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

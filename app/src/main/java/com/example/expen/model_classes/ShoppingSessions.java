@@ -1,4 +1,4 @@
-package com.example.expen;
+package com.example.expen.model_classes;
 
 import com.google.firebase.firestore.ServerTimestamp;
 

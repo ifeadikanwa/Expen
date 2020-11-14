@@ -8,13 +8,6 @@
     android:background="@color/blue"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/dark_blue"
-        app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/main_activity_actions" />
 
     <TextView
         android:id="@+id/textView"
@@ -24,7 +17,7 @@
         android:text="Nov 1 - Nov 30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_graph_bg"

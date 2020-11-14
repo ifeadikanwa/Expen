@@ -1,4 +1,4 @@
-package com.example.expen;
+package com.example.expen.model_classes;
 
 public class Product {
     public class Products {
