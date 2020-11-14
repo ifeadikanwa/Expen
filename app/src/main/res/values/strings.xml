@@ -3,5 +3,7 @@
 
     <string name="scan">Scan</string>
 
+    <string name="shopping_session_action">Shopping Session Action</string>
+    <string name="add_action">Add Action</string>
 
 </resources>
