@@ -41,4 +41,6 @@
     <string name="shopping_sessions">Shopping Sessions</string>
     <string name="pick_a_store">Pick a Store</string>
     <string name="pick_a_location">Pick a Location</string>
+    <string name="total">Total</string>
+    <string name="items">Items</string>
 </resources>

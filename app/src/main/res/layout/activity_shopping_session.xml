@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShoppingSessionActivity">
+
+    <TextView
+        android:id="@+id/shopping_session_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Shopping Session"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/shopping_session_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Name"
+        app:layout_constraintRight_toLeftOf="@+id/shopping_session_date"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shopping_session_title" />
+
+    <EditText
+        android:id="@+id/shopping_session_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Date"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/shopping_session_name"
+        app:layout_constraintTop_toBottomOf="@+id/shopping_session_title" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/shopping_session_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shopping_session_name" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/shopping_session_info"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+        <TextView
+            android:id="@+id/total_items_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/total_items_cost_label"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/items" />
+        <TextView
+            android:id="@+id/total_items_cost_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@+id/total_items_label"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/total" />
+        <TextView
+            android:id="@+id/session_item_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/total_items_label"
+            app:layout_constraintLeft_toLeftOf="@id/total_items_label"
+            android:text="0" />
+        <TextView
+            android:id="@+id/session_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/total_items_cost_label"
+            app:layout_constraintLeft_toLeftOf="@id/total_items_cost_label"
+            android:text="$0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/fab_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:menu_colorNormal="@color/main_fab">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_size="mini"
+            app:fab_colorNormal="@color/search_fab"
+            app:fab_colorDisabled="@color/search_fab"
+            app:fab_colorPressed="@color/search_fab"
+            app:fab_colorRipple="@color/search_fab"
+            android:src="@drawable/ic_magnify"
+            app:fab_label="Search for an item" />
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_size="mini"
+            app:fab_colorNormal="@color/scan_fab"
+            app:fab_colorRipple="@color/scan_fab"
+            app:fab_colorPressed="@color/scan_fab"
+            app:fab_colorDisabled="@color/scan_fab"
+            android:src="@drawable/ic_barcode"
+            app:fab_label="Scan an item" />
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_size="mini"
+            app:fab_colorNormal="@color/add_fab"
+            app:fab_colorDisabled="@color/add_fab"
+            app:fab_colorPressed="@color/add_fab"
+            app:fab_colorRipple="@color/add_fab"
+            android:src="@drawable/ic_list_plus"
+            app:fab_label="Add session to budget" />
+    </com.github.clans.fab.FloatingActionMenu>
+</androidx.constraintlayout.widget.ConstraintLayout>
