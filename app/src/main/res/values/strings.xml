@@ -31,5 +31,11 @@
     <string name="sports_category_label">Sports</string>
     <string name="transport_category_label">Transport</string>
     <string name="travel_category_label">Travel</string>
+    <string name="choose_income_category">Choose Income Category</string>
 
+    <!--  Income Category Labels  -->
+    <string name="paycheck_category_label">Paycheck</string>
+    <string name="gift_category_label">Gift</string>
+    <string name="interest_category_label">Interest</string>
+    <string name="other_category_label">Other</string>
 </resources>
