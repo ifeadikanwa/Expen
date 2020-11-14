@@ -8,15 +8,13 @@ public class Entry {
     private String entryDescription;
     private Double entryAmount;
     @ServerTimestamp private Date entryDate;
-    private boolean isExpense;
 
     public Entry(){}
 
-    public Entry(String entryDescription, Double entryAmount, Date entryDate, boolean isExpense) {
+    public Entry(String entryDescription, Double entryAmount, Date entryDate) {
         this.entryDescription = entryDescription;
         this.entryAmount = entryAmount;
         this.entryDate = entryDate;
-        this.isExpense = isExpense;
     }
 
     public String getEntryDescription() {
@@ -43,11 +41,4 @@ public class Entry {
         this.entryDate = entryDate;
     }
 
-    public boolean isExpense() {
-        return isExpense;
-    }
-
-    public void setExpense(boolean expense) {
-        isExpense = expense;
-    }
 }

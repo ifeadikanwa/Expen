@@ -20,9 +20,10 @@ public class FirestoreRepository {
     final CollectionReference categoriesRef = db.collection("categories");
     public static final String ENTRIES = "entries";
     public static final String CATEGORY_NAME_FIELD = "categoryName";
+    public static final String IS_EXPENSE_FIELD = "expense";
 
-    public void createCategoryAndAddEntry(String categoryName, String categoryBudget, boolean hasContent, String entryDescription, Double entryAmount, Date entryDate, boolean isExpense){
-        Categories category = new Categories(categoryName, categoryBudget, hasContent);
+    public void createCategoryAndAddEntry(String categoryName, String categoryBudget, boolean hasContent, boolean isExpense,  String entryDescription, Double entryAmount, Date entryDate ){
+        Categories category = new Categories(categoryName, categoryBudget, hasContent, isExpense);
         categoriesRef.document(categoryName)
                 .set(category)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -30,7 +31,7 @@ public class FirestoreRepository {
                     public void onSuccess(Void aVoid) {
                         Log.i(TAG, "Category added");
                         //add the entry to the created category
-                        addEntry(categoryName, entryDescription, entryAmount, entryDate, isExpense);
+                        addEntry(categoryName, entryDescription, entryAmount, entryDate);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -41,15 +42,15 @@ public class FirestoreRepository {
                 });
 
     }
-    public void addEntry(String categoryName, String entryDescription, Double entryAmount, Date entryDate, boolean isExpense){
-        Entry entry = new Entry(entryDescription, entryAmount, entryDate, isExpense);
+    public void addEntry(String categoryName, String entryDescription, Double entryAmount, Date entryDate){
+        Entry entry = new Entry(entryDescription, entryAmount, entryDate);
         categoriesRef.document(categoryName)
                 .collection(ENTRIES)
                 .add(entry)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        Log.e(TAG, "Entry added");
+                        Log.i(TAG, "Entry added");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

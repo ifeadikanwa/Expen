@@ -122,13 +122,13 @@ public class AddEntryActivity extends AppCompatActivity implements DatePickerDia
                                     if(document.exists()){
                                         //add entry to category
                                         firestoreRepository.addEntry(categoryName, description.getText().toString(),
-                                                Double.parseDouble(amount.getText().toString()), entryDate, isExpense);
+                                                Double.parseDouble(amount.getText().toString()), entryDate);
                                     }
                                     else{
                                         //create category and then add entry
                                         firestoreRepository.createCategoryAndAddEntry(categoryName, "0",
-                                                true, description.getText().toString(),
-                                                Double.parseDouble(amount.getText().toString()), entryDate, isExpense);
+                                                true, isExpense,  description.getText().toString(),
+                                                Double.parseDouble(amount.getText().toString()), entryDate);
                                     }
 
                                     startActivity(new Intent(AddEntryActivity.this, MainActivity.class));

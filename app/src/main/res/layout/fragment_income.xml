@@ -3,12 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IncomeFragment">
+    tools:context=".IncomeFragment"
+    android:background="@color/blue">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/income_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="income" />
+        tools:listitem="@layout/income_item_layout"/>
 
 </FrameLayout>

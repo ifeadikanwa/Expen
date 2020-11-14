@@ -5,10 +5,16 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.expen.model_classes.Categories;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.Query;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +22,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class ExpenseFragment extends Fragment {
+    RecyclerView recyclerView;
+    ExpenseAdapter adapter;
+    FirestoreRepository firestoreRepository;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -67,11 +76,41 @@ public class ExpenseFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        
+
+        firestoreRepository = new FirestoreRepository();
+        recyclerView = view.findViewById(R.id.expense_recyclerview);
+
         //set up the recyclerview
         setupRecyclerview();
     }
 
     private void setupRecyclerview() {
+        Query query = firestoreRepository.categoriesRef
+                .whereEqualTo(FirestoreRepository.IS_EXPENSE_FIELD, true);
+
+
+        FirestoreRecyclerOptions<Categories> options = new FirestoreRecyclerOptions.Builder<Categories>()
+                .setQuery(query, Categories.class)
+                .build();
+
+        adapter = new ExpenseAdapter(options);
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        LinearLayoutManager verticalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(verticalLayout);
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
     }
 }
