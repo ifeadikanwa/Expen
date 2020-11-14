@@ -49,6 +49,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/expenses"
         android:textAllCaps="true"
+        android:onClick="SwitchFragments"
         app:layout_constraintStart_toStartOf="@+id/main_graph_bg"
         app:layout_constraintTop_toBottomOf="@+id/main_graph_bg" />
 
@@ -59,11 +60,12 @@
         android:layout_marginTop="20dp"
         android:text="@string/income"
         android:textAllCaps="true"
+        android:onClick="SwitchFragments"
         app:layout_constraintEnd_toEndOf="@+id/main_graph_bg"
         app:layout_constraintTop_toBottomOf="@+id/main_graph_bg" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/main_list_container"
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
@@ -72,19 +74,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/expense_tabbutton"
         app:layout_constraintWidth_percent=".9">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/main_list_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_info_container"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/main_list_container"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintWidth_percent=".9" >
