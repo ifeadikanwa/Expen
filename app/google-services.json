@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "370238601364",
+    "firebase_url": "https://expen-54a80.firebaseio.com",
+    "project_id": "expen-54a80",
+    "storage_bucket": "expen-54a80.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370238601364:android:22fff98dc9c0efab1f5c81",
+        "android_client_info": {
+          "package_name": "com.example.expen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370238601364-iqfpjopqacvnvph9fsv3jnhtboo3r3hj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDK-wMWgyEUF6sVaEFVW6YLO__gNjzh8NE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370238601364-iqfpjopqacvnvph9fsv3jnhtboo3r3hj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
