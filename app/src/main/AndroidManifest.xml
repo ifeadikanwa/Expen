@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Expen">
-        <activity android:name=".IncomeCategoryActivity"></activity>
+        <activity android:name=".AddCategoryActivity"></activity>
+        <activity android:name=".IncomeCategoryActivity" />
         <activity android:name=".ExpenseCategoryActivity" />
         <activity android:name=".AddEntryActivity" />
         <activity android:name=".MainActivity">
