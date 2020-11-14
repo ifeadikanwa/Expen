@@ -22,7 +22,7 @@
         android:id="@+id/kroger_button"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:background="@android:color/white"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintWidth_percent=".38"
         android:layout_marginTop="30dp"

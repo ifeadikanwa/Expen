@@ -17,4 +17,5 @@
     <color name="scan_fab">#EC6291</color>
     <color name="add_fab">#5B91F4</color>
     <color name="light_purple">#8C88BC</color>
+    <color name="dark_text">#323232</color>
 </resources>
