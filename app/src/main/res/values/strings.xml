@@ -40,4 +40,5 @@
     <string name="other_category_label">Other</string>
     <string name="shopping_sessions">Shopping Sessions</string>
     <string name="pick_a_store">Pick a Store</string>
+    <string name="pick_a_location">Pick a Location</string>
 </resources>
