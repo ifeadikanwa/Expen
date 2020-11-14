@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
     android:orientation="vertical"
     tools:context=".ShowCategoryEntriesActivity">
 
     <TextView
         android:id="@+id/category_entries_title"
         android:layout_width="match_parent"
+        android:textSize="20sp"
         android:layout_height="wrap_content"
         android:text="Category"
         android:textAlignment="center"
