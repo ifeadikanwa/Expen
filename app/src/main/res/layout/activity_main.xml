@@ -32,6 +32,17 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintWidth_percent=".9">
 
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/ring_chart"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".9"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/balance_ring"
             android:layout_width="wrap_content"
