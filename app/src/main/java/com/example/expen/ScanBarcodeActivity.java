@@ -58,7 +58,7 @@ public class ScanBarcodeActivity extends AppCompatActivity  {
 
 
 
-        name = null;
+
         price = null;
         scanBtn.setOnClickListener(this::onClick);
         addtocartBtn.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +120,7 @@ public class ScanBarcodeActivity extends AppCompatActivity  {
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+        name = null;
         if (scanningResult != null) {
             String scanContent = scanningResult.getContents();
             String barcodelink = requestData("https://api.npoint.io/e538dfc7831909d9491c");
@@ -137,7 +138,6 @@ public class ScanBarcodeActivity extends AppCompatActivity  {
                     barcode.setText("Barcode: " + scanContent);
                     Log.d("scanContent", scanContent);
                     if (scanContent.equals(key)){
-
                         name = barcodejson.getJSONObject(key).getString("name");
                         Log.d("name", name);
                         price = barcodejson.getJSONObject(key).getString("price");
