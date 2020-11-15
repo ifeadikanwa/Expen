@@ -33,7 +33,7 @@ public class IncomeAdapter extends FirestoreRecyclerAdapter<Categories, IncomeAd
     }
 
     class IncomeHolder extends RecyclerView.ViewHolder{
-        CardView categoryIcon;
+        ImageView categoryIcon;
         TextView categoryName;
         TextView percentage;
         TextView amount;
@@ -82,16 +82,16 @@ public class IncomeAdapter extends FirestoreRecyclerAdapter<Categories, IncomeAd
 
         switch(model.getCategoryName()){
             case "Other":
-                holder.categoryIcon.setCardBackgroundColor(Color.MAGENTA);
+                holder.categoryIcon.setImageResource(R.drawable.ic_other_category);
                 break;
             case "Paycheck":
-                holder.categoryIcon.setCardBackgroundColor(Color.BLUE);
+                holder.categoryIcon.setImageResource(R.drawable.ic_paycheck_category);
                 break;
             case "Gift":
-                holder.categoryIcon.setCardBackgroundColor(Color.RED);
+                holder.categoryIcon.setImageResource(R.drawable.ic_gift_category);
                 break;
             case "Interest":
-                holder.categoryIcon.setCardBackgroundColor(Color.GREEN);
+                holder.categoryIcon.setImageResource(R.drawable.ic_interest_category);
                 break;
 
         }
