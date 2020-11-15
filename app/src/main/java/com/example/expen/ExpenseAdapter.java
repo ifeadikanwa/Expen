@@ -1,13 +1,16 @@
 package com.example.expen;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import androidx.annotation.IntegerRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,6 +40,7 @@ public class ExpenseAdapter extends FirestoreRecyclerAdapter<Categories, Expense
         TextView budgeted;
         TextView spent;
         TextView remaining;
+        ProgressBar progressBar;
 
         public ExpenseHolder(@NonNull View itemView) {
             super(itemView);
@@ -46,6 +50,7 @@ public class ExpenseAdapter extends FirestoreRecyclerAdapter<Categories, Expense
             budgeted = itemView.findViewById(R.id.budget_txt);
             spent = itemView.findViewById(R.id.spent_txt);
             remaining = itemView.findViewById(R.id.remaining_txt);
+            progressBar = itemView.findViewById(R.id.budget_progress_bar);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -62,24 +67,56 @@ public class ExpenseAdapter extends FirestoreRecyclerAdapter<Categories, Expense
 
     @Override
     protected void onBindViewHolder(@NonNull ExpenseAdapter.ExpenseHolder holder, int position, @NonNull Categories model) {
-
+        //set budgeted
         holder.budgeted.setText(model.getCategoryBudget());
 
-        if(model.getCategorySpent() == null){
-            holder.spent.setText("0");
+        //set remainder
+        double rem;
+        if(model.getCategoryBudget().equalsIgnoreCase("0")){
+            rem = 0;
         }
-        else{
-            holder.spent.setText(model.getCategorySpent());
+        else {
+            rem = Double.parseDouble(model.getCategoryBudget().trim()) - Double.parseDouble(model.getCategorySpent().trim());
         }
+        holder.remaining.setText(String.valueOf(rem));
 
-        if(model.getCategoryRemaining() == null){
-            holder.remaining.setText("0");
-        }
-        else{
-            holder.remaining.setText(model.getCategoryRemaining());
-        }
+        Log.i("rem", String.valueOf(rem));
 
+        //set spent
+        holder.spent.setText(model.getCategorySpent());
+
+//        if(model.getCategorySpent() == null){
+//            holder.spent.setText("0");
+//        }
+//        else{
+//            holder.spent.setText(model.getCategorySpent());
+//        }
+//
+//        if(model.getCategoryRemaining() == null){
+//            holder.remaining.setText("0");
+//        }
+//        else{
+//            holder.remaining.setText(model.getCategoryRemaining());
+//        }
+
+        //set category name
         holder.categoryName.setText(model.getCategoryName());
+
+        //set progress bar
+        double progress;
+        if(model.getCategoryBudget().equalsIgnoreCase("0")){
+            progress = 0;
+        }
+        else{
+            progress = (Double.parseDouble(model.getCategorySpent()) * 100) / Double.parseDouble(model.getCategoryBudget());
+        }
+
+        holder.progressBar.setProgress((int)progress);
+
+//        Log.i("budget", String.valueOf(Integer.parseInt(model.getCategoryBudget())));
+//        Log.i("Progress", String.valueOf(progress));
+
+
 
         switch(model.getCategoryName()){
             case "Auto":
