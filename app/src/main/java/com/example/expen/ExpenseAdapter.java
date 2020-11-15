@@ -78,7 +78,7 @@ public class ExpenseAdapter extends FirestoreRecyclerAdapter<Categories, Expense
         else {
             rem = Double.parseDouble(model.getCategoryBudget().trim()) - Double.parseDouble(model.getCategorySpent().trim());
         }
-        holder.remaining.setText(String.valueOf(rem));
+        holder.remaining.setText(String.format("%.2f", rem));
 
         Log.i("rem", String.valueOf(rem));
 

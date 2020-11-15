@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 
 import com.example.expen.model_classes.Categories;
 import com.example.expen.model_classes.Entry;
+import com.example.expen.model_classes.Product;
+import com.example.expen.model_classes.ShoppingSessions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
@@ -19,6 +21,7 @@ public class FirestoreRepository {
     public static final String TAG = FirestoreRepository.class.getSimpleName();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     final CollectionReference categoriesRef = db.collection("categories");
+    final CollectionReference sessionsRef = db.collection("sessions");
     public static final String ENTRIES = "entries";
     public static final String CATEGORY_NAME_FIELD = "categoryName";
     public static final String IS_EXPENSE_FIELD = "expense";
@@ -138,5 +141,23 @@ public class FirestoreRepository {
                     }
                 });
 
+    }
+
+    public void addProduct(String productName, Double productPrice, String productID){
+        Product product = new Product(productName, productPrice, productID);
+
+        sessionsRef.add(product)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.i(TAG, "product added");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.e(TAG, e.toString());
+                    }
+                });
     }
 }

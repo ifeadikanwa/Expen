@@ -16,6 +16,9 @@
 
         </activity>
         <activity android:name=".SearchItemActivity" />
+        <activity android:name=".ScanBarcodeActivity"
+            android:theme="@style/AppTheme">
+        </activity>
         <activity android:name=".ShoppingSessionActivity" />
         <activity android:name=".ShoppingSessionsListActivity" />
         <activity android:name=".AddCategoryActivity" />
@@ -28,6 +31,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

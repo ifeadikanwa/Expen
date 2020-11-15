@@ -1,15 +1,14 @@
 package com.example.expen.model_classes;
 
 public class Product {
-    public class Products {
         private String productName;
         private Double productPrice;
         private String productID;
 
-        public Products() {
+        public Product() {
         }
 
-        public Products(String productName, Double productPrice, String productID) {
+        public Product(String productName, Double productPrice, String productID) {
             this.productName = productName;
             this.productPrice = productPrice;
             this.productID = productID;
@@ -38,5 +37,5 @@ public class Product {
         public void setProductID(String productID) {
             this.productID = productID;
         }
-    }
+
 }

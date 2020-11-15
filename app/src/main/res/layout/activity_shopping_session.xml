@@ -61,7 +61,7 @@
             style="@style/composite_input_description"
             app:layout_constraintLeft_toRightOf="@id/session_date_icon"
             android:text="Date" />
-        <EditText
+        <TextView
             android:id="@+id/shopping_session_date"
             style="@style/composite_input_value"
             app:layout_constraintTop_toBottomOf="@id/session_date_description"
@@ -75,6 +75,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/product_item_layout"
         app:layout_constraintTop_toBottomOf="@+id/session_name_container" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -124,6 +125,7 @@
             app:layout_constraintLeft_toLeftOf="@id/total_items_cost_label"
             app:layout_constraintTop_toBottomOf="@id/total_items_cost_label" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/fab_menu"
         android:layout_width="wrap_content"
