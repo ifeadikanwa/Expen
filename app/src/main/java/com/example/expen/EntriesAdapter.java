@@ -52,6 +52,7 @@ public class EntriesAdapter extends FirestoreRecyclerAdapter<Entry, EntriesAdapt
         holder.date.setText(simpleDateFormat.format(date));
 
 
+
     }
 
     @NonNull

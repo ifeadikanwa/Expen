@@ -16,6 +16,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     public static final String CATEGORY = "category";
     public static final String ENTRY_TYPE = "entryType";
+    public static final String BUDGET_VALUE = "budgetValue";
 
     Button expenseButton;
     Button incomeButton;

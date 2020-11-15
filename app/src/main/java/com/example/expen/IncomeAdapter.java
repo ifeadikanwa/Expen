@@ -75,7 +75,7 @@ public class IncomeAdapter extends FirestoreRecyclerAdapter<Categories, IncomeAd
             holder.amount.setText("0");
         }
         else{
-            holder.amount.setText(model.getCategorySpent());
+            holder.amount.setText(model.getCategoryAmount());
         }
 
 

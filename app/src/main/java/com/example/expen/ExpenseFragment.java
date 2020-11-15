@@ -111,6 +111,7 @@ public class ExpenseFragment extends Fragment {
 
                 Intent intent = new Intent(getContext(), DisplayEntriesActivity.class);
                 intent.putExtra(MainActivity.CATEGORY, categories.getCategoryName());
+                intent.putExtra(MainActivity.BUDGET_VALUE, categories.getCategoryBudget());
                 startActivity(intent);
             }
 
