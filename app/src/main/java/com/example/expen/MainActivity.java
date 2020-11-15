@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         balanceRing = findViewById(R.id.balance_ring);
 
         expenseButton.setBackground(getResources().getDrawable(R.drawable.tab_line));
+        ringChart.setNoDataText("");
 
         Fragment theDefault = new ExpenseFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, theDefault).commit();
@@ -155,7 +156,6 @@ public class MainActivity extends AppCompatActivity {
         ringChart.setDrawHoleEnabled(true);
         ringChart.setHoleColor(getResources().getColor(R.color.light_blue));
         ringChart.setDrawRoundedSlices(true);
-        ringChart.setNoDataText("");
     }
 
     private void populatePieAndColorEntriesList(List<Categories> categories, boolean isExpense, List<PieEntry> entries, List<Integer> colorEntries) {
