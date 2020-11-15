@@ -37,10 +37,8 @@
                     android:layout_marginLeft="10dp"
                     android:textSize="17dp"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/inc_amount_txt"
                     android:text="House" />
 
                 <TextView
@@ -48,9 +46,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/inc_category_txt"
                     app:layout_constraintRight_toLeftOf="@id/percentage_txt"
+                    android:layout_marginRight="40dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     android:textSize="12sp"
                     android:text="House" />
 
@@ -59,9 +57,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginRight="20dp"
-                    app:layout_constraintLeft_toRightOf="@id/inc_amount_txt"
                     app:layout_constraintRight_toRightOf="parent"
                     android:text="House" />
 
