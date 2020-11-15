@@ -14,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.firestore.Query;
 import com.example.expen.model_classes.Categories;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     Button expenseButton;
     Button incomeButton;
     PieChart ringChart;
+    TextView balanceRing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         expenseButton = findViewById(R.id.expense_tabbutton);
         incomeButton = findViewById(R.id.income_tabbutton);
         ringChart = findViewById(R.id.ring_chart);
+        balanceRing = findViewById(R.id.balance_ring);
 
         expenseButton.setBackground(getResources().getDrawable(R.drawable.tab_line));
 
@@ -157,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void populatePieAndColorEntriesList(List<Categories> categories, boolean isExpense, List<PieEntry> entries, List<Integer> colorEntries) {
         float total = getTotalCurrency(categories, isExpense);
+        balanceRing.setText("$" + total);
         for (Categories category : categories) {
             float percentage = getPercentageCurrency(category, total, isExpense);
             entries.add(new PieEntry(percentage));
