@@ -15,7 +15,10 @@
             android:parentActivityName=".MainActivity">
 
         </activity>
-        <activity android:name=".SearchItemActivity" />
+        <activity android:name=".SearchItemActivity"
+            android:parentActivityName=".ShoppingSessionActivity">
+
+        </activity>
         <activity android:name=".ScanBarcodeActivity"
             android:theme="@style/AppTheme">
         </activity>

@@ -81,6 +81,13 @@ public class ShoppingSessionActivity extends AppCompatActivity implements DatePi
             }
         });
 
+        searchFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ShoppingSessionActivity.this, SearchItemActivity.class));
+            }
+        });
+
         readData();
         setupGlobals();
         scanOnFABClicked();
