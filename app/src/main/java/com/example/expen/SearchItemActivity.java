@@ -31,10 +31,13 @@ public class SearchItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_item);
 
+        getSupportActionBar().setTitle("");
+
         readData();
 
         searchIcon = findViewById(R.id.search_icon);
         searchText = findViewById(R.id.item_search_bar);
+        FirestoreRepository firestoreRepository = new FirestoreRepository();
         RecyclerView recyclerView = findViewById(R.id.search_item_recyclerview);
 
 
@@ -49,6 +52,14 @@ public class SearchItemActivity extends AppCompatActivity {
        adapter = new SearchProductsAdapter(searchMatchesProducts);
        recyclerView.setAdapter(adapter);
        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+       adapter.setOnItemClickListener(new SearchProductsAdapter.OnItemClickListener() {
+           @Override
+           public void onItemClick(int position) {
+               Product product = searchMatchesProducts.get(position);
+               firestoreRepository.addProduct(product.getProductName(), product.getProductPrice(), product.getProductID());
+               Toast.makeText(SearchItemActivity.this, "Product Added", Toast.LENGTH_SHORT).show();
+           }
+       });
     }
 
     private void readData() {

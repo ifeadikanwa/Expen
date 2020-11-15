@@ -10,11 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.expen.model_classes.Product;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.ArrayList;
 
 public class SearchProductsAdapter extends  RecyclerView.Adapter<SearchProductsAdapter.SearchProductsViewHolder> {
     private ArrayList<Product> mProducts = new ArrayList<>();
+
+    private SearchProductsAdapter.OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(SearchProductsAdapter.OnItemClickListener listener) {
+        this.listener = listener;
+    }
 
     public SearchProductsAdapter(ArrayList<Product> products) {
         mProducts = products;
@@ -30,6 +41,17 @@ public class SearchProductsAdapter extends  RecyclerView.Adapter<SearchProductsA
             productName = itemView.findViewById(R.id.product_name);
             productID = itemView.findViewById(R.id.product_id);
             productPrice = itemView.findViewById(R.id.product_price);
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION && listener != null) {
+                        listener.onItemClick(position);
+                    }
+                }
+            });
         }
     }
 

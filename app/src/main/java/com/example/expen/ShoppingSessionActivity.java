@@ -19,10 +19,13 @@ import com.example.expen.model_classes.Product;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.github.clans.fab.FloatingActionButton;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -89,10 +92,29 @@ public class ShoppingSessionActivity extends AppCompatActivity implements DatePi
         });
 
         readData();
+        initalizeCountAndCost();
         setupGlobals();
         scanOnFABClicked();
         addToBudgetFABClicked();
         setupRecyclerview();
+    }
+
+    private void initalizeCountAndCost() {
+        firestoreRepository.sessionsRef
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        for(QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+                            Product product = documentSnapshot.toObject(Product.class);
+                            itemCount++;
+                            totalCost += product.getProductPrice();
+                        }
+
+                        sessionItemCountView.setText(String.valueOf(itemCount));
+                        sessionTotalCostView.setText("$"+ String.format("%.2f", totalCost));
+                    }
+                });
     }
 
 
