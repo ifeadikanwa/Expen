@@ -16,19 +16,22 @@
 
         </activity>
         <activity android:name=".SearchItemActivity" />
+        <activity android:name=".ScanBarcodeActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".ShoppingSessionActivity" />
         <activity android:name=".ShoppingSessionsListActivity" />
         <activity android:name=".AddCategoryActivity" />
         <activity android:name=".IncomeCategoryActivity" />
         <activity android:name=".ExpenseCategoryActivity" />
         <activity android:name=".AddEntryActivity" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".MainActivity"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
     </application>
 
 </manifest>
